@@ -3,7 +3,11 @@ $(function(){
 $(".toggleIcon").on("click", function() {
 // アイコンのclass属性を切り替え
 $(this).toggleClass("active");
-// 項目を表示させる
-$(this).next().slideToggle();
+// DOMの中から.titleをすべて取得
+const titleArray = document.querySelectorAll(".title");
+// .toggleIconのデータ属性を取得
+const index = this.dataset.listIndex
+// titleArrayからDOMを取得し、兄弟要素のアコーディオンを開閉する
+$(titleArray[index]).next().slideToggle()
 });
 });
